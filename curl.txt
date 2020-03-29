@@ -1,0 +1,8 @@
+# add book
+curl -X POST -H "Content-Type: application/json" -d '{"title":"kimetsu", "description":"kimetsu"}' localhost:8080/book/
+
+# select all books
+curl localhost:8080/book
+
+# select one book by id
+curl localhost:8080/book/1
