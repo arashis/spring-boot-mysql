@@ -10,6 +10,10 @@ import java.util.List;
 
 @Repository
 public interface BookRepository extends JpaRepository<Book, Integer> {
+    //    以下と同じ
+    //    @Query(nativeQuery = true, value = "select * from book")
+    //    Book findAllBooks(int id);
+
     @Override
     List<Book> findAll();
 

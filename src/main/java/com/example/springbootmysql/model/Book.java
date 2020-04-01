@@ -8,14 +8,17 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 /*
-* delete_flag=0(ture)のものだけ取り出したかったら@Whereでしていできる
+* delete_flag=0(false)のものだけ取り出したかったら@Whereでしていできる
 * */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Book implements Serializable{
+public class Book extends Auditable<String> {
 
+    /*
+     * テーブルのIDカラム
+     * */
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Integer bookId;
