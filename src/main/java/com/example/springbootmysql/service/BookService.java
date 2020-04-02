@@ -1,6 +1,7 @@
 package com.example.springbootmysql.service;
 
 import com.example.springbootmysql.model.Book;
+import com.example.springbootmysql.model.BookIdAndTitle;
 import com.example.springbootmysql.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,8 +19,8 @@ public class BookService {
         return bookRepository.findAll();
     }
 
-    public Book getBook(int bookId) {
-        return bookRepository.findByBookId(bookId);
+    public BookIdAndTitle getBook(int bookId) {
+        return bookRepository.findBookIdAndTitleByBookId(bookId);
     }
 
     public int addBook(Book book) {

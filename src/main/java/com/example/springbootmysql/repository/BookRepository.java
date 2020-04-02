@@ -1,6 +1,7 @@
 package com.example.springbootmysql.repository;
 
 import com.example.springbootmysql.model.Book;
+import com.example.springbootmysql.model.BookIdAndTitle;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -21,6 +22,9 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
     //    @Query(nativeQuery = true, value = "select * from book b where b.book_id = ?1")
     //    Book findBook(int id);
     Book findByBookId(Integer id);
+
+    @Query(nativeQuery = true, value = "select b.book_id, b.title from book b where b.book_id = ?1")
+    BookIdAndTitle findBookIdAndTitleByBookId(Integer id);
 
     @Override
     @Transactional

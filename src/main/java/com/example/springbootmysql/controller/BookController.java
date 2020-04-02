@@ -1,6 +1,7 @@
 package com.example.springbootmysql.controller;
 
 import com.example.springbootmysql.model.Book;
+import com.example.springbootmysql.model.BookIdAndTitle;
 import com.example.springbootmysql.model.User;
 import com.example.springbootmysql.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class BookController {
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/{bookId}")
-    public ResponseEntity<Book> getBook(@PathVariable(value = "bookId") int bookId) {
+    public ResponseEntity<BookIdAndTitle> getBook(@PathVariable(value = "bookId") int bookId) {
         return new ResponseEntity<>(bookService.getBook(bookId), HttpStatus.OK);
     }
 
